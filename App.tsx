@@ -10,6 +10,7 @@
 
 import React from 'react';
 import {
+  Image,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -17,57 +18,24 @@ import {
   Text,
   useColorScheme,
   View,
+
+  
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const Section: React.FC<{
-  title: string;
-}> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+
+import NavContainer from './src/navigation';
+import Shimmering from './src/skeleton';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+  
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      
-    </SafeAreaView>
+      <NavContainer />
+      // <Shimmering
+      //       wrapperStyle={{width: 60, height: 60, borderRadius: 30}}
+      //     />
   );
+
 };
 
 const styles = StyleSheet.create({
@@ -87,6 +55,15 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+
+  container: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#ffff'
+  }
+
+
+
 });
 
 export default App;
